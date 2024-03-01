@@ -1,20 +1,32 @@
 <template>
-  <div
-    style="
-      height: 500px;
-      width: 500px;
-      border: 1px solid red;
-      position: relative;
-    "
-  >
-    <vue-draggable-resizable :w="100" :h="100" :parent="true">
-      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-    </vue-draggable-resizable>
-  </div>
+  <ClientOnly>
+    <VueDragResize
+      :is-active="true"
+      :w="200"
+      :h="200"
+      @resizing="dragResize"
+      @dragging="dragResize"
+    >
+      <p>{{ top }} х {{ left }}</p>
+      <p>{{ width }} х {{ height }}</p>
+    </VueDragResize>
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-import VueDraggableResizable from 'vue-draggable-resizable';
+import VueDragResize from 'vue3-drag-resize';
+
+const width = ref(0);
+const height = ref(0);
+const top = ref(0);
+const left = ref(0);
+
+function dragResize(newRect) {
+  width.value = newRect.width;
+  height.value = newRect.height;
+  top.value = newRect.top;
+  left.value = newRect.left;
+}
 </script>
 
 <style lang="scss" scoped>
