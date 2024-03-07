@@ -7,10 +7,18 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest"
   },
   "dependencies": {
+    "@nuxt/test-utils": "^3.11.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/test-utils": "^2.4.4",
+    "happy-dom": "^13.6.2",
+    "jsdom": "^24.0.0",
     "nuxt": "^3.10.3",
+    "playwright-core": "^1.42.1",
+    "vitest": "^1.3.1",
     "vue": "^3.4.19",
     "vue-drag-resize": "^1.5.4",
     "vue-draggable-resizable": "^3.0.0",
